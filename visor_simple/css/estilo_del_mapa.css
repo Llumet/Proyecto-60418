@@ -1,0 +1,6 @@
+
+/* el mapa se puede personalizar en su presentación por medio de estos atributos: en este caso, ancho y alto */
+#mapa {
+	width: 600px;
+	height: 400px;
+}

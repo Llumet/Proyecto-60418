@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+
+		<!--
+
+		Creado a partir de los ejemplos: https://leafletjs.com/examples/layers-control/example.html y view-source:https://leafletjs.com/examples/quick-start/example.html
+		y https://leafletjs.com/examples/map-panes/example.html
+
+		-->
+
+		<title>Visor Cartográfico Sencillo</title>
+
+		<!-- Para asegurarnos de que se usa la tipografía en español, con tildes, etc. -->
+		<meta charset="utf-8" />
+		
+
+		<!-- Estas dos líneas sirven para poder utilizar la librería "Leaflet": su estilo -primera-, y su código javascript -segunda línea- -->
+
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
+		<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js" integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew==" crossorigin=""></script>
+
+
+		<!-- Los polígonos que representan las fronteras de cada país europeo proceden de este archivo, tomado del ejemplo: https://leafletjs.com/examples/map-panes/example.html -->
+		<script type="text/javascript" src="js/eu-countries.js"></script>
+
+		<!-- También se ha puesto aparte, para mayor claridad, en otro archivo el estilo CSS del mapa -->
+		<link rel="stylesheet" href="css/estilo_del_mapa.css"/>
+		
+	</head>
+
+<body>
+
+	<div id='mapa'></div>
+
+<script>
+// PASO 1: creamos las capas a agregar al mapa
+
+// El sistema nos obliga a indicar que el mapa usado ha sido creado a partir de "openstreetmap", porque la licencia de uso obliga a eso
+var autores = 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
+		'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>';
+		
+// De esta página se estará sacando toda la información a visualizar en el mapa, en tiempo real
+var mapa_online = 'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw';
+
+// A cada capa creada, le tenemos que pasar la dirección del "mapa_online", para que saque en tiempo real la información pedida por el usuario
+var capa_calles  = L.tileLayer(mapa_online, {id: 'mapbox/streets-v11', tileSize: 512, zoomOffset: -1, attribution: autores});
+var capa_grises   = L.tileLayer(mapa_online, {id: 'mapbox/light-v9', tileSize: 512, zoomOffset: -1, attribution: autores});
+
+// Esta capa, sin embago, necesita infromación pero sólo de los nombres de los países
+var capa_nombrespaises = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
+	attribution: autores,
+	pane: 'etiquetas' // se mostrará en el panel "etiquetas"
+});
+
+// Aquí añadimos los polígonos, contenidos en en una variable llamada "euCountries", en el archivo javascript agregado arriba, en el apartado HEAD
+capa_poligonos = L.geoJson(euCountries);
+
+capa_poligonos.eachLayer(function (layer) {
+	layer.bindPopup(layer.feature.properties.name);
+});
+
+// PASO 2: creamos el mapa (es segundo paso, porque como puede verse, ya se indica alguna capa en el campo "layers"
+
+// Con este código creamos el mapa: tiene latitud y longitud como sistema de coordenadas, a diferencia del ejemplo original
+var mapa = L.map('mapa', {
+	center: { lat: 47.355789, lng: 13.593967 }, // aquí hemos indicado latitud y longitud
+	zoom: 3.9,  // aquí se indica el nivel de Zoom
+	layers: capa_calles // en este campo indico la capa que va a seleccionarse por defecto, al iniciar el mapa
+});
+
+// PASO 3: Y ahora agregamos al mapa todas las capas creadas en el paso 1
+
+// Con este código creamos la capa de las etiquetas de los países
+var panel_etiquetas = mapa.createPane('etiquetas');
+
+// Las etiquetas apareceran encima de los marcadores pero debajo de las ventanas con texto
+mapa.getPane('etiquetas').style.zIndex = 650;
+
+// Las etiquetas en este panel no interfieren con los clicks de ratón
+mapa.getPane('etiquetas').style.pointerEvents = 'none';
+
+// En esta variables almacenamos las capas que, si se selecciona una, no se puede seleccionar otra
+var capasexcluyentes = {
+	"Calles": capa_calles,
+	"Poligonos": capa_poligonos,
+	"Tonos de gris": capa_grises
+};
+
+// En esta variables almacenamos las capas que, si se selecciona una, no se puede seleccionar otra
+var capassuperponen = {
+	"Nombres países": capa_nombrespaises
+};
+
+// por último, agrego ya las capas -las "base", y las "overlays", que pueden marcarse o desmarcarse en combinación con las otras-
+L.control.layers(capasexcluyentes, capassuperponen).addTo(mapa);
+
+// PASO 4: añadimos barra de escala al visor
+
+// añadimos una barra de escala
+L.control.scale().addTo(mapa);
+
+</script>
+
+</body>
+</html>
