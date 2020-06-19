@@ -1,0 +1,381 @@
+<!-- quitar los CENTER -->
+
+<!DOCTYPE html>
+
+<!--
+    Asignatura: 60418
+    Curso: Master en Tecnologías de la iformación Geográfica y Teledetección
+    Alumna: María Jiménez-Bravo Morales
+    Título del proyecto: Herramientas para compartir y visualizar información espacial
+    Plantilla utilizada: https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_interior_design&stacked=h
+-->
+
+<!--
+Cambio "en" por "es" para que esté mejor adaptada al uso de tildes y eñes -tomado
+de la web https://www.w3schools.com/tags/att_lang.asp-
+-->
+<html lang="es">
+
+<!--
+    Hemos creado el apartado "head", porque en la plantilla original no existía
+-->    
+
+<head>
+
+    <!--
+        Personalizamos el title también: ASOCIACIÓN ANIMALISTA 4PATAS
+    -->    
+
+    <title>ASOCIACIÓN ANIMALISTA 4PATAS</title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--
+        He descargado el archivo de estilo CSS, para poder modificarlo e introducirlo 
+        en una carpeta del proyecto, llamada "css"
+    -->
+    <link rel="stylesheet" href="css/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+    <!--
+        He eliminado todo el css de la etiqueta "style" para introducirlo directamente
+        en el css (w3.css), pero he dejado aquí el original, para que se viera
+        qué modificaciones he hecho
+
+    -->
+    <style>
+    /*body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
+    body {font-size:16px;}
+    .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
+    .w3-half img:hover{opacity:1}
+    */
+    </style>
+</head>
+
+<body>
+	
+	<!-- Barra de menú lateral para saltar de una opción a otra -->
+	<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+		
+	  <!-- 
+	  Vamos a introducir también en el w3.css, algunos de los estilos CSS que estén dentro de cada elemento/etiqueta HTML
+	  para mostrar cómo se podría hacer -se va a hacer sólo con los tres primeros elementos con el atributo "style" que me encuentre en el código */
+	  -->
+	  <a id="enlace" href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft">Close Menu</a>
+	  <!-- Este es el antiguo de la plantilla: -->
+	  <!-- 
+	  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
+		  -->
+	  <div class="w3-container">
+		<h3 class="w3-padding-64"><b>Asociación Animalista<br>4Patas</b></h3>
+	  </div>
+
+	  <!-- Esta es una la áreas más importantes del código: es el menú lateral izquierdo-->
+
+	  <div class="w3-bar-block">
+		<!--
+		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
+		-->
+		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">¿Quiénes somos?</a> 
+		<a href="#enadopcion" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">En adopción</a> 
+		<a href="#apadrina" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Otras formas de ayudar</a> 
+		<a href="#actividades" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Actividades</a> 
+		<a href="#contacto" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Localízanos</a>
+	  </div>
+	</nav>
+
+	<!-- Menú superior para pantallas pequeñas -->
+	<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
+	  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
+	  <span>4Patas</span>
+	</header>
+
+	<!-- Voy a cambiar el contenido del código CSS de este "style" al archivo "w3.css" -sólo me queda uno más,
+		 porque lo hago para mostrar cómo se haría, aunque sé que hay casi 40 en total- --->
+
+	<div id="myOverlay" class="w3-overlay w3-hide-large" onclick="w3_close()" title="close side menu"></div>
+
+
+	<!-- Este es el antiguo: --->
+	<!--
+	<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+	-->
+	<!-- !PAGE CONTENT! -->
+
+	<!-- Última modificación de un atributo "style" para mostrar cómo se haría para pasar el resto
+	de "styles" de otros elementos/etiquetas al archivo css w3.css, en la carpeta "css" -->
+
+	<div id="main" class="w3-main">
+
+	<!--
+	Antiguo:
+	-->
+	<!--
+	<div class="w3-main" style="margin-left:340px;margin-right:40px">
+	-->
+
+	  <!-- Header -->
+	  <div class="w3-container" style="margin-top:80px" id="showcase">
+		<center><h1 class="w3-jumbo"><b>ADOPTA Y SALVA</b></h1></center>
+		<h1 class="w3-xxxlarge w3-text-red"><b>Asociación Animalista 4Patas</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+	  </div>
+
+	  <!-- Segunda parte más importante del código: distintas secciones de la web: -->
+
+	  <!-- ¿Quiénes somos? -->
+	  <div class="w3-container" id="quienessomos">
+		<!--
+		<h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+		-->
+		<p>Desafortunadamente sigue siendo habitual que algunos propietarios que compran un cachorro de forma impulsiva decidan abandonarlo o dejarlo en una protectora de perros cuando se dan cuenta de que convivir con él implica un compromiso importante que puede superar los 10 años, en términos de dedicación, paciencia y reestructuración de la rutina o estilo de vida adquirido. España es el país europeo con mayor tasa de abandonos, llegando esta cifra a los 300.000 abandonos anuales.</p>
+		<p>Con la acción de adoptar no solo estás solucionando un gran problema social, sino que también estás frenando una acción ruin, la de poner precio a vidas.</p>
+
+		<h4><strong>¿Quiénes somos?</strong></h4>
+
+		<p>Somos un refugio dedicados no solo a rescatar vidas, sino también a la gestión y orientación de las adopciones. Nos encargamos de difundir y crear campañas de consciencia para toda la sociedad a nivel nacional</p>
+		<p>Creamos cursos de adiestramiento canino y ayudantes de veterinarios, también ofrecemos diferentes salidas a nuestros refugiados y orientamos a las personas que quieren ayudar.</p>
+
+		<h4><strong>¿Puedo adoptar?</strong></h4>
+
+		<p>Antes de realizar una adopción queremos ponernos en contacto contigo, saber tus objetivos, deseos y expectativas a la hora de tener una mascota en tu hogar. Por ello te recomendamos hablar con nuestros orientadores una vez hayas realizado (y contestado honestamente) las siguientes preguntas:</p>
+
+		<ul>
+			<li>¿Para qué quiero una mascota?</li>
+			<li>¿Tengo dinero para afrontarlo?</li>
+			<li>¿Tengo tiempo y espacio?</li>
+			<li>¿Quiero ampliar la familia?</li>
+			<li>¿Soy tolerante a los pelos?</li>
+			<li>¿Tengo espiritu de sacrificio?</li>
+		</ul>
+
+		<p>En nuestra asociación queremos conocerte para ofrecerte las mejores alternativas, cada persona es un mundo y cada animal también. En base a tu estilo de vida y carácter trataremos de guiarte hacia las opciones más adecuadas.</p>
+
+		<center><p>¡No tengas miedo y pregúntanos!</p></center>
+
+		<video width="400" controls>
+			<source src="video/presentacion.mp4" type="video/mp4">
+			Tu navegador no ofrece soporte a este formato de vídeo
+		</video>
+
+		<p>Entrevista <strong>Un proyecto animalista en crecimiento</strong>:</p>
+		<audio controls autoplay>
+			<source src="musica/20120921LLSATR-con_dos_patas.mp3">
+			<p>Si no puede escuchar música de fondo es por un problema en su navegador, pruebe con otro.</p>
+		</audio>
+
+	  </div>
+
+	  <!-- Apartado "En adopción" -->
+	  <div class="w3-container" id="enadopcion" style="margin-top:75px">
+		<h1 class="w3-xxxlarge w3-text-red"><b>En adopción</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+
+		<div class="w2-row-padding">
+			<!-- Para que funcione le tenemos que quitar la barra invertida, de modo que 
+				use la carpeta que se encuentra en la misma ruta donde está "index.html",
+				porque si no buscará la ruta absoluta "file:///C:w3images/team2.jpg"
+			-->      
+			<img src="w3images/Dali.jpg" style="width:33%;" onclick="onClick(this)" alt="Concrete meets bricks">
+			
+			<img src="w3images/FridaKahlo.jpg" style="width:33%;" onclick="onClick(this)" alt="White walls with designer chairs">
+			
+			<img src="w3images/Madona.jpg" style="width:33%" onclick="onClick(this)" alt="Concrete meets bricks">
+			<!--
+			<img src="w3images/FridaKahlo.jpg" style="width:300px; height:270px;" onclick="onClick(this)" alt="White walls with designer chairs">
+			-->
+		</div>
+		
+		<div class="w2-row-padding">
+			<img src="w3images/RayCharles.jpg" style="width:33%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+			<img src="w3images/Picasso.jpg" style="width:33%" onclick="onClick(this)" alt="White walls with designer chairs">
+			<img src="w3images/Dracula.jpg" style="width:33%;" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+		</div>
+
+		<br> 
+
+		<div class="w2-row-padding">
+			<!-- Para que funcione le tenemos que quitar la barra invertida, de modo que 
+				use la carpeta que se encuentra en la misma ruta donde está "index.html",
+				porque si no buscará la ruta absoluta "file:///C:w3images/team2.jpg"
+			-->      
+			<img src="w3images/Jordan.jpg" style="width:33%;" onclick="onClick(this)" alt="Concrete meets bricks">
+			
+			<img src="w3images/Mahoma.jpg" style="width:33%;" onclick="onClick(this)" alt="White walls with designer chairs">
+			
+			<img src="w3images/marley.jpg" style="width:33%" onclick="onClick(this)" alt="Concrete meets bricks">
+			<!--
+			<img src="w3images/FridaKahlo.jpg" style="width:300px; height:270px;" onclick="onClick(this)" alt="White walls with designer chairs">
+			-->
+			</div>
+
+			<div class="w2-row-padding">
+				<img src="w3images/ramsey.jpg" style="width:33%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+				<img src="w3images/rihana.jpg" style="width:33%" onclick="onClick(this)" alt="White walls with designer chairs">
+				<img src="w3images/Alaska.jpg" style="width:33%;" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+			</div>
+
+		</div>
+
+	<!--
+		<div>
+		<div class="w3-half">
+		
+		  <img src="w3images/kitchenconcrete.jpg" style="width:33%" onclick="onClick(this)" alt="Concrete meets bricks">
+		  <img src="w3images/livingroom.jpg" style="width:33%" onclick="onClick(this)" alt="Light, white and tight scandinavian design">
+		  <img src="w3images/diningroom.jpg" style="width:33%" onclick="onClick(this)" alt="White walls with designer chairs">
+		</div>
+
+		<div class="w3-half">
+		  <img src="w3images/atrium.jpg" style="width:33%" onclick="onClick(this)" alt="Windows for the atrium">
+		  <img src="w3images/bedroom.jpg" style="width:33%" onclick="onClick(this)" alt="Bedroom and office in one space">
+		  <img src="w3images/livingroom2.jpg" style="width:33%" onclick="onClick(this)" alt="Scandinavian design">
+		</div>
+	  </div>
+	-->
+
+	  <!-- Modal for full size images on click-->
+	  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+		<span class="w3-button w3-black w3-xxlarge w3-display-topright">×</span>
+		<div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+		  <img id="img01" class="w3-image">
+		  <p id="caption"></p>
+		</div>
+	  </div>
+
+	  <!-- Otras formas de ayudar -->
+	  <div class="w3-container" id="apadrina" style="margin-top:75px">
+		<h1 class="w3-xxxlarge w3-text-red"><b>Otras formas de ayudar</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+
+		<h4><strong>Apadrina</strong></h4>
+
+		<p>No siempre se tiene la posibilidad de tener un animal en casa. A veces, por problemas de espacio o por no disponer de tiempo suficiente, es imposible tener un animal de compañía en nuestro hogar. En estos casos, ofrecemos la posibilidad de apadrinar uno de nuestros perros o gatos. Tu nombre figurará en la ficha del animal que aparece en nuestra web y podrás venir a verlo solicitando cita previa (<strong>de lunes a viernes de 10 a 17:30h y los fines de semana y festivos de 9:00 a 11:00h</strong>).  Si apadrinas a un perro, puedes venir a pasearlo por los alrededores del refugio. Y si apadrinas un gato, estará encantado de que vengas a hacerle compañía.</p>
+
+		<h4><strong>Voluntariado</strong></h4>
+
+		<p>En la Liga necesitamos personas con ganas de ayudar, ya sea paseando perros, acariciando gatos, repartiendo comidas, limpiando las instalaciones o poniendo lavadoras. Pero no siempre hay plazas libres. En esta página informaremos periódicamente de las necesidades que vayan surgiendo para cubrir turnos de voluntariado de perros o gatos. Asimismo, recuerda que no solo hay voluntarios en el refugio. Siempre precisamos gente con habilidades que nos ayuden en la actividad diaria de la protectora: periodistas, informáticos, diseñadores, artesanos, comerciales, abogados, fotógrafos, publicistas... Hay muchos profesionales que nos pueden ayudar a crecer y a dar a conocer nuestra labor. Si tú eres uno de ellos y estás dispuesto a comprometerte, te queremos conocer.</p>
+
+		<h4><strong>Enlaces de interés</strong></h4>
+
+		<p><a href="http://plataformagatera.org/" target="_blank">Plataforma Gatera</a></p>
+		<p><a href="http://www.almaanimalasturias.org/" target="_blank">Alma animal Asturias</a></p>
+		<p><a href="https://asociacionanimalistallucmajor.com/" target="_blank">Asociación Major</a></p>
+		<p><a href="visor_simple/index.html" target="_blank">Visor Cartográfico Simple</a></p>
+		<p><a href="visor_tematico/index.html" target="_blank">Visor Cartográfico Temático</a></p>
+
+
+		</p>
+	  </div>
+	  
+	  <!-- Apartado Actividades -->
+	  <div class="w3-container" id="actividades" style="margin-top:75px">
+		<h1 class="w3-xxxlarge w3-text-red"><b>Actividades</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+	  </div>
+
+	  <style>
+		
+		/* Create two equal columns that floats next to each other */
+		.column {
+		float: left;
+		width: 50%;
+		padding: 10px;
+		}
+
+		/* Clear floats after the columns */
+		.row:after {
+		content: "";
+		display: table;
+		clear: both;
+		}
+	  </style>
+		
+		<div class="row">
+			<div class="w3-light-grey">        
+			<div class="column">
+				<img src="w3images/policias.jpg" alt="John" style="width:100%">
+				<div class="w3-container">
+				<h3>Cuerpo Nacional</h3>
+				<p class="w3-opacity"></p>
+				<p>En nuestro centro se encuentran perros con aptitudes para el rastreo y una alta obediencia, por ello si presentan diferentes características se donan al cuerpo nacional.
+				</p>
+				</div>
+			</div>
+			<div class="column">
+				<img src="w3images/ppp.jpg" alt="John" style="width:100%">
+				<div class="w3-container">
+				<h3>PPP</h3>
+				<p>También ofrecemos la posibilidad de obtener la licencia para Perros Potencialmente Peligrosos (test, pruebas, acreditación homologada y por un coste muy inferior a otros departamentos)</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="w3-light-grey">        
+			<div class="column">
+				<img src="w3images/RESIDENCIAS.jpg" alt="John" style="width:100%">
+				<div class="w3-container">
+				<h3>Residencias</h3>
+				<p>Todos los viernes a las 17h se realizan excursiones a diferentes residencias de mayores, ya que ambos grupos necesitan dar amor y recibirlo. Es una práctica que llevamos implantando (y ayudando a implantar a otros centros) desde 2010, con resultados muy provechosos para todos.</p>
+				</div>
+			</div>
+			<div class="column">
+				<img src="w3images/cursos.jpg" alt="John" style="width:100%">
+				<div class="w3-container">
+				<h3>Cursos</h3>
+				<p>En nuestro centro se ofrecen dos cursos, el de adiestrador canino y el de ayudante de veterinario, ya que a parte de beneficiarnos económicamente también nos ayudáis a mantener y gestionar el centro. Tu formación será de calidad y estarás contribuyendo a una buena causa</p>
+				</div>
+			</div>
+			</div>
+		</div>
+
+	  <!-- Apartado "Contáctanos" -->
+	  <div class="w3-container" id="contacto" style="margin-top:75px">
+		<h1 class="w3-xxxlarge w3-text-red"><b>Localízanos</b></h1>
+		<hr style="width:50px;border:5px solid red" class="w3-round">
+
+		<h4><strong>Dirección</strong></h4>
+
+		<p>Camí de Son Reus, s/n</p>
+		<p>07120 Palma (Illes Balears)</p>
+
+		<h4><strong>Datos de contacto:</strong></h4>
+
+		<p><strong></string>Teléfono</strong>: 971438695</p>
+		<p><strong>Fax</strong>: 971438864</p>
+		<p><strong>Correo electrónico</strong>: <a href="mailto:centreproteccioanimal@palma.cat">centreproteccioanimal@palma.cat</a></p>
+	 
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6144.313695034076!2d2.675718285995771!3d39.64618450077083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1297eceb1a8fc1e3%3A0xc973c6495c361cc9!2sCam%C3%AD%20de%20Son%20Reus%2C%2007120%20Palma%2C%20Illes%20Balears!5e0!3m2!1ses!2ses!4v1592515836278!5m2!1ses!2ses" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+		
+	  </div>
+
+	</div>
+
+	<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
+
+	<script>
+	// Para abrir y cerrar barra lateral en modo visor móvil
+	function w3_open() {
+	  document.getElementById("mySidebar").style.display = "block";
+	  document.getElementById("myOverlay").style.display = "block";
+	}
+	 
+	function w3_close() {
+	  document.getElementById("mySidebar").style.display = "none";
+	  document.getElementById("myOverlay").style.display = "none";
+	}
+
+	// Para cuando pulsemos sobre una imagen, y se vea grande
+	function onClick(element) {
+	  document.getElementById("img01").src = element.src;
+	  document.getElementById("modal01").style.display = "block";
+	  var captionText = document.getElementById("caption");
+	  captionText.innerHTML = element.alt;
+	}
+	</script>
+
+</body>
+</html>
